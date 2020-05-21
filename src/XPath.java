@@ -1,4 +1,6 @@
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class XPath {
@@ -13,6 +15,22 @@ public class XPath {
         WebDriver driver = new ChromeDriver();
         driver.get("https://www.seleniumeasy.com/test/bootstrap-alert-messages-demo.html");
         driver.manage().window().maximize();
+
+        driver.findElement(By.xpath("//*[contains(@id,'normal-btn-warning')]")).click();
+
+        WebElement message = driver.findElement(By.xpath("//*[@class='alert alert-warning alert-normal-warning']"));
+
+        WebElement button = driver.findElement(By.xpath("//*[@class='alert alert-warning alert-normal-warning']//following-sibling::button"));
+
+        String text = message.getText().replace(button.getText(), "").trim();
+
+        String test = "I'm a normal warning message. To close use the appropriate button.";
+
+        System.out.println( test.equals( text ) ? "Success!" : "Failure!" );
+
+        button.click();
+        System.out.println( !message.isDisplayed() ? "Success!" : "Failure" );
+        driver.quit();
 
 
     }
