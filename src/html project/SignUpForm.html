@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+
+    </style>
+</head>
+<body>
+
+<!--
+   Create a form with:
+    * 1 text input called "username"
+    * 2 password inputs, called "password" and "password repeat"
+    * 1 text area called "address"
+    * 2 radio buttons with values "male" and "female" and called "sex"
+    * 1 dropdown with selections: free, basic, enterprise. Call this dropdown "plan"
+    * 1 checkbox with name "agreement" and with text "I agree to terms and conditions"
+    * 1 submit image button that uses "submit.png"
+   Put your form inside a div
+-->
+
+<form action="/signupform.php">
+
+    <label for="username">First Name:</label>
+    <input type="text" id="username" name="username"><br>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="enter your password" maxlength="8"><br>
+
+    <label for="password">Password Repeat:</label>
+    <input type="password" id="passwordrepeat" name="enter your password again" maxlength="8"><br>
+
+    <label for="address" resize="both" overflow="auto">Address:</label>
+    <input type="textarea" id="address" name="address" size="50" > <br>
+
+    <label for="files">Select files:</label>
+    <input type="file" id="files" name="files" multiple><br>
+
+
+    <br>
+    <input type="submit" value="Submit">
+
+</form>
+
+</body>
+</html>
