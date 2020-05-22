@@ -11,12 +11,12 @@ public class ScreenShotCase {
     public static void main(String[] args) throws InterruptedException, IOException {
         System.setProperty( "webdriver.chrome.driver", "C:\\Users\\suler\\Desktop\\Selenium\\chromedriver\\chromedriver.exe" );
         WebDriver driver = new ChromeDriver();
-        driver.get( "http://the-internet.herokuapp.com/nested_frames" );
+        driver.get( "http://the-internet.herokuapp.com/iframe" );
 
         WebDriverWait wait = new WebDriverWait(driver, 15);
-        driver.switchTo().frame("/frame_left");
+        driver.switchTo().frame("mce_0_ifr");
 
-        WebElement webElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[name = 'frame-left']")));
+        WebElement webElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[id = 'tinymce']")));
 
         System.out.println(webElement.getTagName());
 
