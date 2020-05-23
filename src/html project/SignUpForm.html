@@ -9,7 +9,7 @@
     </style>
 </head>
 <body>
-
+<h1 color="blue">SIGNUP FORM</h1>
 <!--
    Create a form with:
     * 1 text input called "username"
@@ -24,15 +24,21 @@
 
 <form action="/signupform.php">
 
-    <label for="username">First Name:</label>
-    <input type="text" id="username" name="username"><br>
+    <p><label for="username">First Name: </label>
+    <input type="text" id="username" name="username" required><br></p>
 
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="enter your password" maxlength="8"><br>
+    <p><label for="password">Password: </label>
+    <input type="password" id="password" name="enter your password" maxlength="8" required></p>
 
-    <label for="password">Password Repeat:</label>
-    <input type="password" id="passwordrepeat" name="enter your password again" maxlength="8"><br>
+   <p> <label for="password">Password Repeat: </label>
+    <input type="password" id="passwordrepeat" name="enter your password again" maxlength="8" required></p>
 
+    <p><label>Adress:</label><br>
+    <textarea name="address" id="address" placeholder="enter your address here" maxlength="40"></textarea></p>
+
+    <p>Sex:<br>
+    <input type="radio" name="male"> Male</input> <br>
+    <input type="radio" name="female"> Female</input><br></p>
 
 
     <label for="files">Select files:</label>
