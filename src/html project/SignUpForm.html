@@ -37,8 +37,20 @@
     <textarea name="address" id="address" placeholder="enter your address here" maxlength="40"></textarea></p>
 
     <p>Sex:<br>
-    <input type="radio" name="male"> Male</input> <br>
-    <input type="radio" name="female"> Female</input><br></p>
+    <input type="radio" name="sex" id="male"> Male</input> <br>
+    <input type="radio" name="sex" id ="female"> Female</input><br></p>
+
+    <p>
+        Plan: <br>
+        <select name="Plan">
+            <option id="option1">Free</option>
+
+            <option id="option2">Basic</option>
+
+            <option id="option3">Enterprise</option>
+
+        </select>
+    </p>
 
 
     <label for="files">Select files:</label>
@@ -46,7 +58,9 @@
 
 
     <br>
-    <input type="submit" value="Submit">
+    <button id="submit" name="Submit" class="button"> <img src="html project\submit.png">
+
+    </button>
 
 </form>
 

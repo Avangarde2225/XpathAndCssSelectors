@@ -23,7 +23,6 @@ public class ScreenShotCase {
 
         System.out.println(webElement.getTagName());
 
-        //File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 
         File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 
