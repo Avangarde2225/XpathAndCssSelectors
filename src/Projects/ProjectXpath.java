@@ -1,5 +1,6 @@
 package Projects;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -21,8 +22,15 @@ public class ProjectXpath {
     public static void main(String[] args) throws InterruptedException {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\suler\\Desktop\\Selenium\\chromedriver\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
-        driver.get("https://ultimateqa.com/complicated-page/");
+        driver.get("http://the-internet.herokuapp.com/login");
 
         driver.manage().window().maximize();
+
+        String usernameFromEmTag= driver.findElement(By.xpath("//h4[@class='subheader']//em[1]")).getText();
+        String passwordFromEmTag= driver.findElement(By.xpath("//h4[@class='subheader']//em[1]")).getText();
+
+        driver.findElement(By.xpath("//*[@name='username']")).sendKeys(usernameFromEmTag);
+        driver.findElement(By.xpath("//input[@name='password']")).sendKeys(passwordFromEmTag);
+
     }
 }
