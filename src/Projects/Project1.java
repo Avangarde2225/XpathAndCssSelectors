@@ -1,5 +1,6 @@
 package Projects;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -17,6 +18,11 @@ public class Project1 {
 
         driver.manage().window().maximize();
 
+        driver.findElement(By.cssSelector(".et_pb_text_inner > h2:nth-child(1)"));
+
+        driver.findElement(By.cssSelector("div.et_pb_text_inner ul li:first-child"));
+
+        driver.findElement(By.cssSelector("div.et_pb_text_inner ul li:nth-child(2)"));
 
 
 
