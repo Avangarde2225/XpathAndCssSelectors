@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class Project1 {
+public class ProjectCss {
     /**
      * Open "https://ultimateqa.com/complicated-page/"
      * find "Skills Improved:" using css selectors and validate text
