@@ -27,11 +27,23 @@ public class ProjectXpath {
         driver.manage().window().maximize();
 
         String usernameFromEmTag= driver.findElement(By.xpath("//h4[@class='subheader']//em[1]")).getText();
-        String passwordFromEmTag= driver.findElement(By.xpath("//h4[@class='subheader']//em[1]")).getText();
+        String passwordFromEmTag= driver.findElement(By.xpath("//h4[@class='subheader']//em[2]")).getText();
 
         driver.findElement(By.xpath("//*[@name='username']")).sendKeys(usernameFromEmTag);
         driver.findElement(By.xpath("//input[@name='password']")).sendKeys(passwordFromEmTag);
 
         driver.findElement(By.xpath("//button[@class='radius']")).click();
+
+        //verification of Welcome to the Secure Area text
+
+        String verfiedText= driver.findElement(By.xpath("//h4[@class='subheader']")).getText();
+
+        String textAfterSubmission = "Welcome to the Secure Area. When you are done click logout below.";
+
+        if(verfiedText.equals(textAfterSubmission)){
+            System.out.println("Success");
+        } else{
+            System.out.println("Failure");
+        }
     }
 }
