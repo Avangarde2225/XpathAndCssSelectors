@@ -32,5 +32,6 @@ public class ProjectXpath {
         driver.findElement(By.xpath("//*[@name='username']")).sendKeys(usernameFromEmTag);
         driver.findElement(By.xpath("//input[@name='password']")).sendKeys(passwordFromEmTag);
 
+        driver.findElement(By.xpath("//button[@class='radius']")).click();
     }
 }
