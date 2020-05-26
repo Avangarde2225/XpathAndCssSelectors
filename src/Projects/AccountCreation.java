@@ -26,9 +26,10 @@ public class AccountCreation {
 
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\suler\\Desktop\\Selenium\\chromedriver\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
-        driver.get("https://ultimateqa.com/filling-out-forms/");
+        driver.get("https://courses.ultimateqa.com/users/sign_up");
         driver.manage().window().maximize();
 
+        //part 1
 
     }
 
