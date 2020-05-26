@@ -1,6 +1,8 @@
 package Projects;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class AccountCreation {
@@ -30,6 +32,24 @@ public class AccountCreation {
         driver.manage().window().maximize();
 
         //part 1
+
+        WebElement fname = driver.findElement(By.xpath("//input[@id='user[first_name]']"));
+        fname.sendKeys("Antonio");
+
+        WebElement lname = driver.findElement(By.xpath("//input[@id='user[last_name]']"));
+        lname.sendKeys("Banderas");
+
+        WebElement email = driver.findElement(By.xpath("//input[@id='user[email]']"));
+        email.sendKeys("Abuzittin34@aol.com");
+
+        WebElement password = driver.findElement(By.xpath("//input[@id='user[password]']"));
+        password.sendKeys("yeyehsnwkkw");
+
+        WebElement terms = driver.findElement(By.xpath("//input[@id='user[terms]']"));
+        terms.click();
+
+        WebElement submit = driver.findElement(By.xpath("//input[@class='button button-primary g-recaptcha']"));
+        submit.click();
 
     }
 
