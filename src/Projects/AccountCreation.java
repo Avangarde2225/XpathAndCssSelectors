@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AccountCreation {
     /**
@@ -40,7 +42,7 @@ public class AccountCreation {
         lname.sendKeys("Banderas");
 
         WebElement email = driver.findElement(By.xpath("//input[@id='user[email]']"));
-        email.sendKeys("Abuzittin34@aol.com");
+        email.sendKeys("Abuzittin36@aol.com");
 
         WebElement password = driver.findElement(By.xpath("//input[@id='user[password]']"));
         password.sendKeys("yeyehsnwkkw");
@@ -50,6 +52,15 @@ public class AccountCreation {
 
         WebElement submit = driver.findElement(By.xpath("//input[@class='button button-primary g-recaptcha']"));
         submit.click();
+
+        WebDriverWait wait = new WebDriverWait(driver,15);
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@id='recaptcha-verify-button']")));
+
+        driver.get("https://courses.ultimateqa.com/account");
+
+
+
+
 
     }
 

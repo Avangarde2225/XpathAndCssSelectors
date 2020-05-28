@@ -4,10 +4,23 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-    body {background: khaki; text-align: center;}
-    h1 {color: blue;}
-    p {margin: 20px;}
-    input { margin: 0;}
+  div.form{
+  background-color:lightgreen;
+  width:50%;
+  text-align: center;
+  margin: auto;
+  padding: 25px;
+  border-radius: 15px
+  }
+
+  input, textarea, p, option, select{
+  color:khaki;
+  font-family : Arial;
+  margin : 2px;
+  }
+  input[type=image]{
+  width=200px
+  }
 
     </style>
 </head>
@@ -25,7 +38,7 @@
    Put your form inside a div
 -->
 
-<form action="/signupform.php">
+<div class = form action="/signupform.php">
 
     <p><label for="username">First Name: </label>
     <input type="text" id="username" name="username" required><br></p>
@@ -65,7 +78,7 @@
 
     </button>
 
-</form>
+</div>
 
 </body>
 </html>
