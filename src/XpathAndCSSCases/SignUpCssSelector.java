@@ -1,4 +1,4 @@
-package htmlproject;
+package XpathAndCSSCases;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

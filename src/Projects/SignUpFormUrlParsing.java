@@ -36,9 +36,12 @@ public class SignUpFormUrlParsing {
     }
     //SignUpForm.html?username=name&password=password&password_repeat=password&address=7514+Riverview+Rd.%0D%0ASheboygan%2C+WI+53081&sex=male&plan=enterprise&agreement=on&x=100&y=24
     public static Map<String, String> getQueryMap(String query) {
+
         String onlyParams = query.substring( query.indexOf( "?" ) + 1 );
         String[] params = onlyParams.split( "&" );
-        Map<String, String> map = new HashMap<String, String>();
+
+
+        Map<String, String> map = new HashMap<>();
         for(String param : params) {
             String key = param.split( "=" )[0];
             String value = param.split( "=" )[1];
