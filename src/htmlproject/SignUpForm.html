@@ -2,83 +2,54 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Form</title>
     <style>
-  div.form{
-  background-color:lightgreen;
-  width:50%;
-  text-align: center;
-  margin: auto;
-  padding: 25px;
-  border-radius: 15px
-  }
+        div.form {
+            background-color: lightgreen;
+            width: 50%;
+            text-align: center;
+            margin: auto;
+            padding: 25px;
+            border-radius: 15px;
+        }
+        input, textarea, p, option, select {
+            color: dodgerblue;
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 2px;
 
-  input, textarea, p, option, select{
-  color:khaki;
-  font-family : Arial;
-  margin : 2px;
-  }
-  input[type=image]{
-  width=200px
-  }
+        }
+        input[type=image] {
+            width: 200px;
+        }
 
     </style>
 </head>
 <body>
-<h1>SIGNUP FORM</h1>
-<!--
-   Create a form with:
-    * 1 text input called "username"
-    * 2 password inputs, called "password" and "password repeat"
-    * 1 text area called "address"
-    * 2 radio buttons with values "male" and "female" and called "sex"
-    * 1 dropdown with selections: free, basic, enterprise. Call this dropdown "plan"
-    * 1 checkbox with name "agreement" and with text "I agree to terms and conditions"
-    * 1 submit image button that uses "submit.png"
-   Put your form inside a div
--->
+<div class="form">
+    <form action="SignUpForm.html" method="GET">
+        <p>Username: <br> <input type="text" name="username"/></p>
+        <p>Password: <br><input type="password" name="password"/></p>
+        <p>Password Repeat:<br> <input type="password" name="password_repeat"/></p>
+        <p>Address:<br> <textarea name="address" rows="5"></textarea></p>
+        <p>Sex: <br>
+            Male<input type="radio" name="sex" value="male"/>
+            Female<input type="radio" name="sex" value="female"/>
 
-<div class = form action="/signupform.php">
+        </p>
+        <p>
+            Plan: <br>
+            <select name="plan">
+                <option value="free">Free</option>
+                <option value="basic">Basic</option>
+                <option value="enterprise">Enterprise</option>
+            </select>
 
-    <p><label for="username">First Name: </label>
-    <input type="text" id="username" name="username" required><br></p>
-
-    <p><label for="password">Password: </label>
-    <input type="password" id="password" name="enter your password" maxlength="8" required></p>
-
-   <p> <label for="password">Password Repeat: </label>
-    <input type="password" id="passwordrepeat" name="enter your password again" maxlength="8" required></p>
-
-    <p><label>Adress:</label><br>
-    <textarea name="address" id="address" placeholder="enter your address here" maxlength="40"></textarea></p>
-
-    <p>Sex:<br>
-    <input type="radio" name="sex" id="male"> Male</input> <br>
-    <input type="radio" name="sex" id ="female"> Female</input><br></p>
-
-    <p>
-        Plan: <br>
-        <select name="Plan">
-            <option id="option1">Free</option>
-
-            <option id="option2">Basic</option>
-
-            <option id="option3">Enterprise</option>
-
-        </select>
-    </p>
-
-
-    <label for="files">Select files:</label>
-    <input type="file" id="files" name="files" multiple><br>
-
-
-    <br>
-    <button id="submit" name="Submit" class="button"> <img src="html project\submit.png">
-
-    </button>
-
+        </p>
+        <p>
+            <input type="checkbox" name="agreement"> I agree to terms and conditions
+        </p>
+        <input type="image" src="submit.png" id="submit"/>
+    </form>
 </div>
-
 </body>
 </html>
