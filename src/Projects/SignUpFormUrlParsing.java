@@ -1,4 +1,4 @@
-package htmlproject;
+package Projects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,7 +10,7 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
-public class UrlParsin {
+public class SignUpFormUrlParsing {
     public static void main(String[] args) {
         System.setProperty( "webdriver.chrome.driver", "C:\\Users\\suler\\Desktop\\Selenium\\chromedriver\\chromedriver.exe" );
         WebDriver driver = new ChromeDriver();
