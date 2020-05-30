@@ -1,3 +1,4 @@
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -14,9 +15,14 @@ public class SolvingMathCaptcha {
 
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\suler\\Desktop\\Selenium\\chromedriver\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
-        driver.get("https://ultimateqa.com/complicated-page/");
-
+        driver.get("https://ultimateqa.com/filling-out-forms/");
         driver.manage().window().maximize();
+
+        driver.findElement(By.xpath("//input[@id='et_pb_contact_name_1']")).sendKeys("Tom");
+        driver.findElement(By.xpath("//textarea[@name='et_pb_contact_message_1']")).sendKeys("bla bla bla text");
+
+
+
     }
 }
 
