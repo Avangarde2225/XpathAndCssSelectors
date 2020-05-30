@@ -92,7 +92,7 @@ public class SignUpFormValidation {
         for (String param : params) {
             String name = param.split("=")[0];
             String value = param.split("=")[1];
-            String decodedValue = URLDecoder.decode(value, StandardCharsets.UTF_8.toString());
+            String decodedValue = URLDecoder.decode(value, StandardCharsets.UTF_8.toString()); // to revert the changes in the html
             map.put(name, decodedValue);
         }
         return map;
