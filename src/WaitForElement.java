@@ -1,8 +1,12 @@
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.io.File;
+import java.io.IOException;
 
 public class WaitForElement {
     /**
@@ -19,7 +23,7 @@ public class WaitForElement {
      * verify that <p> with id="message"  is visible and has text "It's disabled!"
      *
      **/
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\suler\\Desktop\\Selenium\\chromedriver\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.get("http://the-internet.herokuapp.com/dynamic_controls");
@@ -32,5 +36,14 @@ public class WaitForElement {
 
         driver.findElement(By.xpath("//*[@id='input-example']"));
 
+        try{
+            wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#input-example input[type='text'][disabled]")));
+            System.out.println( "Success!" );
+        } catch(TimeoutException e) {
+            System.out.println( "Failure, textInput was not enabled in 5 seconds!" );
+        }
+        File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        File destFile = new File("C:\\Users\\suler\\IdeaProjects\\Xpath and Css Selector Practice/src/waitForElement.jpg");
+        FileUtils.copyFile(file,destFile);
     }
 }
