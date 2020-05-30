@@ -25,17 +25,16 @@ public class SignUpFormValidation {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\suler\\Desktop\\Selenium\\chromedriver\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.get("file:///C:/Users/suler/IdeaProjects/Xpath%20and%20Css%20Selector%20Practice/src/htmlproject/SignUpForm.html");
-
         driver.manage().window().maximize();
 
-
         Map<String, String> expectedValuesMap = initializeValues(); //initializevalues initialized and form filled out
-        fillTheForm( driver, expectedValuesMap );
+        fillTheForm(driver,expectedValuesMap);
 
         driver.findElement( By.id( "submit" ) ).click();
 
-        Map<String, String> actualValuesMap = getParametersMap( driver.getCurrentUrl() );
+        Map<String, String> actualValuesMap = getParametersMap(driver.getCurrentUrl());
 
+        System.out.println("Url is: " + driver.getCurrentUrl());
         // Validate
         validate( expectedValuesMap, actualValuesMap );
         driver.quit();
