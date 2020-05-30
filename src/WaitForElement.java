@@ -1,5 +1,8 @@
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class WaitForElement {
     /**
@@ -21,6 +24,13 @@ public class WaitForElement {
         WebDriver driver = new ChromeDriver();
         driver.get("http://the-internet.herokuapp.com/dynamic_controls");
         driver.manage().window().maximize();
+
+        WebDriverWait wait = new WebDriverWait(driver,5);
+
+        WebElement enable = driver.findElement(By.xpath("//*[@onclick='swapInput()']"));
+        enable.click();
+
+        driver.findElement(By.xpath("//*[@id='input-example']"));
 
     }
 }
