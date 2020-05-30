@@ -1,6 +1,9 @@
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.Random;
 
@@ -47,6 +50,17 @@ public class SolvingMathCaptcha {
         driver.findElement(By.xpath("//button[@type='submit']")).click();
 
         //driver.quit();
+
+        WebDriverWait wait = new WebDriverWait(driver,15);
+        String testString = "Success";
+        try{
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(), '" + testString + "')]")));
+            System.out.println(testString);
+        }catch(TimeoutException e){
+            System.out.println("Failure, text did not wait 15 seconds");
+        }
+
+
     }
 
     private static String solveMathCaptcha(String mathCaptcha) {
