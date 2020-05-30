@@ -2,6 +2,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.Random;
+
 public class SolvingMathCaptcha {
     /**
      * open "https://ultimateqa.com/filling-out-forms/"
@@ -17,6 +19,10 @@ public class SolvingMathCaptcha {
         WebDriver driver = new ChromeDriver();
         driver.get("https://ultimateqa.com/filling-out-forms/");
         driver.manage().window().maximize();
+
+        driver.findElement(By.cssSelector("#et_pb_contact_name_0")).sendKeys(randomLetterGenerator(10));
+        driver.findElement(By.cssSelector("textarea#et_pb_contact_message_0")).sendKeys(randomLetterGenerator(50));
+
 
         driver.findElement(By.xpath("//input[@id='et_pb_contact_name_1']")).sendKeys("Tom");
         driver.findElement(By.xpath("//textarea[@name='et_pb_contact_message_1']")).sendKeys("bla bla bla text");
@@ -34,22 +40,32 @@ public class SolvingMathCaptcha {
 //        String part1 = twoNumbers[0];
 //        String part2 = twoNumbers[1];
 
-       // int sumOfTwoNums = Integer.valueOf(part1) + Integer.valueOf(part2);
+        // int sumOfTwoNums = Integer.valueOf(part1) + Integer.valueOf(part2);
 
-        driver.findElement(By.xpath("//*[@class='input et_pb_contact_captcha']")).sendKeys(solveMathCaptcha(mathCaptcha)+ "");
+        driver.findElement(By.xpath("//*[@class='input et_pb_contact_captcha']")).sendKeys(solveMathCaptcha(mathCaptcha) + "");
 
         driver.findElement(By.xpath("//button[@type='submit']")).click();
 
-        driver.quit();
+        //driver.quit();
     }
 
     private static String solveMathCaptcha(String mathCaptcha) {
-        String[] params = mathCaptcha.split( "\\+" );
+        String[] params = mathCaptcha.split("\\+");
         int sum = 0;
-        for(String p : params) {
-            sum += Integer.valueOf( p.trim() );
+        for (String p : params) {
+            sum += Integer.valueOf(p.trim());
         }
-        return String.valueOf( sum );
+        return String.valueOf(sum);
+    }
+
+    public static String randomLetterGenerator(int length) {
+        String candidateChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        StringBuilder sb = new StringBuilder();
+        Random random = new Random();
+        for (int i = 0; i < length; i++) {
+            sb.append(candidateChars.charAt(random.nextInt(candidateChars.length())));
+        }
+        return sb.toString();
     }
 }
 
