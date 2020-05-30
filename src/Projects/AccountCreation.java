@@ -36,13 +36,13 @@ public class AccountCreation {
         //part 1
 
         WebElement fname = driver.findElement(By.xpath("//input[@id='user[first_name]']"));
-        fname.sendKeys("Antonio");
+        fname.sendKeys("Abuzer");
 
         WebElement lname = driver.findElement(By.xpath("//input[@id='user[last_name]']"));
         lname.sendKeys("Banderas");
 
         WebElement email = driver.findElement(By.xpath("//input[@id='user[email]']"));
-        email.sendKeys("Abuzittin36@aol.com");
+        email.sendKeys("Abuzittin936@aol.com");
 
         WebElement password = driver.findElement(By.xpath("//input[@id='user[password]']"));
         password.sendKeys("yeyehsnwkkw");
@@ -53,16 +53,39 @@ public class AccountCreation {
         WebElement submit = driver.findElement(By.xpath("//input[@class='button button-primary g-recaptcha']"));
         submit.click();
 
-        WebDriverWait wait = new WebDriverWait(driver,15);
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@id='recaptcha-verify-button']")));
+        WebDriverWait wait = new WebDriverWait( driver, 500 );
+        wait.until( ExpectedConditions.visibilityOfElementLocated( By.cssSelector( "a.dropdown__toggle-button" ) ) );
 
-        driver.get("https://courses.ultimateqa.com/account");
+        driver.get( "https://courses.ultimateqa.com/account" );
+        String actualFirstName = driver.findElement( By.id( "user[first_name]" ) ).getAttribute( "value" );
+        String actualLastName = driver.findElement( By.id( "user[last_name]" ) ).getAttribute( "value" );
+        String actualEmail = driver.findElement( By.id( "user[email]" ) ).getAttribute( "value" );
 
+        System.out.println( fname.equals( actualFirstName ) ? "Success!" : "Failure!" );
+        System.out.println( lname.equals( actualLastName ) ? "Success!" : "Failure!" );
+        System.out.println( email.equals( actualEmail ) ? "Success!" : "Failure!" );
 
+        WebElement dropdown = driver.findElement( By.cssSelector( "a.dropdown__toggle-button" ) );
+        dropdown.click();
+
+        WebElement signOutLink = wait.until( ExpectedConditions.visibilityOfElementLocated( By.xpath( "//a[contains(text(), 'Sign Out')]" ) ) );
+        signOutLink.click();
+
+        WebElement signInLink = wait.until( ExpectedConditions.visibilityOfElementLocated( By.xpath( "//a[contains(text(), 'Sign In')]" ) ) );
+        signInLink.click();
+
+        driver.findElement( By.id( "user[email]" ) ).sendKeys( email+"" );
+        driver.findElement( By.id( "user[password]" ) ).sendKeys( password+"" );
+        driver.findElement( By.cssSelector( "input[value='Sign in']" ) ).click();
+
+        WebElement message = wait.until( ExpectedConditions.visibilityOfElementLocated( By.cssSelector( "p.message-text" ) ) );
+        System.out.println( message.getText().equals( "Signed in successfully." ) ? "Signed in successfully." : "Failure!" );
+
+    }
 
 
 
     }
 
 
-}
+
