@@ -29,7 +29,7 @@ public class SignUpFormValidation {
         driver.manage().window().maximize();
 
 
-        Map<String, String> expectedValuesMap = initializeValues();
+        Map<String, String> expectedValuesMap = initializeValues(); //initializevalues initialized and form filled out
         fillTheForm( driver, expectedValuesMap );
 
         driver.findElement( By.id( "submit" ) ).click();
